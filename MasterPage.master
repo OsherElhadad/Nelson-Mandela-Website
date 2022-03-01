@@ -1,0 +1,308 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>האתר של אושר</title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        ul {
+            text-align: left;
+            display: inline;
+            margin-left:30px;
+        }
+    ul li {
+    font: bold 12px/18px sans-serif;
+    display: inline-block;
+    text-decoration:none;
+    margin-right: -4px;
+    position: relative;
+    padding: 20px 25px;
+    background: #fff;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    border-left: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.5s;
+    }
+    ul li a {
+        color:Black;
+        text-decoration:none;
+    }
+    ul li:hover {
+    background: #555;
+    border-bottom: 2px solid Red;
+    }
+    ul li a:hover {
+        color:#fff;
+    }
+    ul li ul li a:hover {
+        color: #fff;
+        font-size:larger;
+    }
+    ul li ul {
+    opacity: 0;
+    padding: 0;
+    position:absolute;
+    top: 55px;
+    right: 4px;
+    width: 170px;
+    visibility: hidden;
+    transition: all 0.5s;
+    }
+    ul li ul li {
+    text-align:right;
+    background: #555;
+    display: block;
+    }
+    ul li ul li a {
+        color:Black;
+        text-decoration:none;
+    }
+    ul li ul li:hover {
+        background: #666;
+        border-bottom: 2px solid Yellow;
+        border-top: 0;
+}
+    ul li:hover ul {
+        opacity: 2;
+            top: 59px;
+    visibility: visible;
+    }
+    #up {
+color:Black;
+}
+#up:hover {
+    color:#fff;
+    }
+    #t
+    {
+        font-size:xx-large;
+        font-style:italic;
+        color:#fff555;
+        float:right;
+        font-family:Guttman Yad-Brush;
+        transition:all 1s;
+        cursor:ne-resize;
+    }
+    #t:hover {
+        font-style:normal;
+        font-size:x-large;
+        color:Blue;
+    }
+    #form2 {
+    border:2px solid white;
+    border-radius:10px;
+    box-shadow:0 0 3px #AAA;
+    width:300px;
+    background:#CCC;
+    padding:10px;
+    overflow:auto;
+}
+input[type=submit]{
+	width:220px;
+	height:40px;
+	background: #6d8383;
+	color:#FFF;
+	font-size: 16px;
+	border:0;
+	border-bottom:5px solid #253f3f;
+	transition: border-bottom 150ms;
+	
+}
+input[type=submit]:hover{
+	border-bottom:2px solid #253f3f;
+	cursor:pointer;
+}
+input[type=reset]{
+	width:220px;
+	height:40px;
+	background: #6d8383;
+	color:#FFF;
+	font-size: 16px;
+	border:0;
+	border-bottom:5px solid #253f3f;
+	transition: border-bottom 150ms;
+	
+}
+input[type=reset]:hover{
+	border-bottom:2px solid #253f3f;
+	cursor:pointer;
+}
+input[type=text] {
+     border-radius:4px;
+     border:1px solid #999;
+     padding:5px;
+     font-family:Times New Roman;
+     color:#777777;
+}
+input[type=checkbox] {
+     border-radius:4px;
+     border:1px solid #999;
+     padding:5px;
+     color:#777777;
+}
+input[type=radio] {
+     border-radius:4px;
+     border:1px solid #999;
+     padding:5px;
+     color:#777777;
+}
+select {
+     border-radius:4px;
+     border:1px solid #999;
+     padding:5px;
+     font-family:Times New Roman;
+     color:#777777;
+}
+input[type=password] {
+     border-radius:4px;
+     border:1px solid #999;
+     padding:5px;
+     font-family:Times New Roman;
+     color:#777777;
+}
+textarea{
+border-radius:5px;
+border:1px solid #999; 
+width:150px;
+padding:5px;
+font-family:Times New Roman;
+color:#777777;
+}
+input[type=text]:hover {
+    border-color:transparent;
+    color:Black;
+}
+input[type=password]:hover {
+    border-color:transparent;
+    color:Black;
+}
+select:hover {
+    border-color:transparent;
+    color:Black;
+}
+input[type=radio]:hover {
+    border-color:transparent;
+    color:Black;
+}
+input[type=checkbox]:hover {
+    border-color:transparent;
+    color:Black;
+}
+textarea:hover {
+    border-color:transparent;
+    color:Black;
+}
+#log:before{
+    content: '';
+    border-color: transparent transparent White transparent;
+    border-style: solid;
+    border-width: 10px;
+    position: absolute;
+    top: -20px;
+    right: 50%;
+    margin-right: -20px;
+    transition: all 3s;
+}
+#log {
+opacity: 0;
+transition: all 0.7s;
+top:10px;
+}
+#login {
+    opacity: 0.3;
+transition: all 0.7s;
+color:Blue;
+text-decoration:none;
+}
+#login:hover {
+    opacity: 1;
+}
+    </style>
+    <script type="text/javascript">
+        function vis() {
+            if (document.getElementById('log').style.visibility == "hidden") 
+            {
+                document.getElementById('log').style.visibility = "visible";
+                document.getElementById('login').innerHTML = "התחבר" + "<lable style='color:Gray'>▲</lable>";
+                document.getElementById('login').style.color = "Yellow";
+                document.getElementById('log').style.opacity = "1";
+                document.getElementById('log').style.top = "33px";
+            }
+            else 
+            {
+                document.getElementById('log').style.visibility = "hidden";
+                document.getElementById('log').style.opacity = "0";
+                document.getElementById('login').innerHTML = "התחבר" + "<lable style='color:Red'>▼</lable>";
+                document.getElementById('login').style.color = "Blue";
+                document.getElementById('log').style.top = "10px";
+            }
+            if (document.getElementById('login').innerHTML.charAt(0) != 'ה')
+            {
+                document.getElementById('log').style.visibility = "hidden";
+                document.getElementById('log').style.opacity = "0";
+                document.getElementById('log').style.top = "10px";
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="font-awesome-4.0.3/css/font-awesome.css" />
+</head>
+<body style="background-image:url('water.jpg'); background-repeat:no-repeat; background-attachment:fixed; direction:rtl">
+<a name="top"></a><div style="width:100%; height:10%; top:0; left:0; right:0; position:absolute; background-color:rgb(35,35,35); border-radius: 20px;"><div id="t">נלסון מנדלה</div><div id="user" style="font-size:large; float:left; color:Yellow; margin-left:150px">שלום <b><%=msg1 %></b> <i class="fa fa-user fa-fw"></i><label style="visibility:<%=msg4 %>"> [<a href="<%=logref %>" id="login" onclick="vis()"><%=msg2 %></a>]</label>
+<div dir="rtl" id="log" style="visibility:hidden; left:5px; float:left; position:absolute;">
+<form id="form2" method="post" action="" class="f" style="color:#333">
+    <table>
+    <tr><th colspan="2">משתמש רשום   <i class="fa fa-user fa-fw"></i></th></tr>
+    <tr><td colspan="2"><font color="red"><%=msg5 %></font> </td></tr>
+    <tr><td>תעודת זהות</td>
+    <td><input type="text" name="id" maxlength="9" placeholder="הכנס 9 ספרות" /></td></tr>
+    
+    <tr><td>סיסמה</td>
+    <td><input type="password" name="password" maxlength="15" placeholder="הכנס בין 6-16 תווים" /></td></tr>
+    
+    <tr><td colspan="2"><input type="submit" name="enterSite" value="כניסה לאתר" />
+    </td></tr>
+    
+    
+    <tr><td>לא משתמש רשום? </td><td><a href="form.aspx" style="text-decoration:none;color:black;"><strong>הרשם כאן</strong><i class="fa fa-pencil fa-fw"></i></a></td></tr>
+
+    </table>
+    
+    </form>
+    </div>
+</div>
+</div>
+<br /><br /><br />
+<center>
+<div style="direction:rtl; width:44%; border-radius:30px; border-color:#555; border-style:solid; border-width:2px; background-color:#fff; position:relative">
+<ul>
+        <li id="main"><a href="Default.aspx">בית</a></li>
+        <li id="about"><a href="About.aspx">על האתר</a></li>
+        <li id="info"><a href="#">מידע</a>
+        <ul>
+            <li id="reka"><a href="page1.aspx">רקע</a></li>
+            <li id="childhood"><a href="page2.aspx">ילדות</a></li>
+            <li id="timeInJail"><a href="page3.aspx">התקופה בכלא</a></li>
+            <li id="after"><a href="page4.aspx">לאחר השחרור</a></li>
+            <li id="successes"><a href="page5.aspx">הוקרה</a></li>
+        </ul>
+        </li>
+        <li id="image"><a href="images.aspx">תמונות</a></li>
+        <%=menu %>
+</ul>
+</div>
+</center>
+    <div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    <br /><br />
+    <div dir="rtl" style="width:100%; right:0; background-color:White; position:absolute; border-top-color:Gray; border-top-width:1px; border-top-style:solid; font-family:Times New Roman; color:#333"><center>האתר של אושר</center></div>
+</body>
+</html>
